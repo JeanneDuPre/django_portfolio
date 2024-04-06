@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load static %} 
+{% block content %}
+
+
+<div class="container">
+    <h2>{{ project.title }}</h2>
+    <p>{{ project.content|safe}}</p>
+    {% for skill in project.skills_list %}
+        <button class="btn btn-primary">{{ skill }}</button>
+    {% endfor %}
+        {% if project.image_4 %}
+            <div class="row">
+                <div class="col"><img src="{{project.image_1.url}}" class="card-img-top" alt="..." /></div>
+                <div class="col"><img src="{{project.image_2.url}}" class="card-img-top" alt="..." /></div>
+            </div>
+            <div class="row">
+                <div class="col"><img src="{{project.image_3.url}}" class="card-img-top" alt="..." /></div>
+                <div class="col"><img src="{{project.image_4.url}}" class="card-img-top" alt="..." /></div>
+            </div> 
+        {% else %}
+            {% if project.image_3 %}
+                <div class="row">
+                    <div class="col"><img src="{{project.image_1.url}}" class="card-img-top" alt="..." /></div>
+                    <div class="col"><img src="{{project.image_2.url}}" class="card-img-top" alt="..." /></div>
+                </div>
+                <div class="row">
+                    <div class="col"><img src="{{project.image_3.url}}" class="card-img-top" alt="..." /></div>
+                </div> 
+            {% else %}
+                {% if project.image_2 %}
+                    <div class="row">
+                        <div class="col"><img src="{{project.image_1.url}}" class="card-img-top" alt="..." /></div>
+                        <div class="col"><img src="{{project.image_2.url}}" class="card-img-top" alt="..." /></div>
+                    </div>
+                {% else %}
+                    {% if project.image_1 %}
+                        <div class="row">
+                            <div class="col"><img src="{{project.image_1.url}}" class="card-img-top" alt="..." /></div>
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            <div class="col"><img src="{% static 'bilder/404.jpg' %}" class="card-img-top" alt="..." /></div>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
+

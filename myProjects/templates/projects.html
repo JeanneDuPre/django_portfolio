@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load static %} 
+{% block content %}
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {% for project in projects %}
+        <div class="card-deck col-md-4" style="display:flex; flex-wrap: wrap; align-items: stretch;">
+          <div class="card mb-4 box-shadow" style="width: 25rem;">
+            {% if project.image %}
+            <a onclick="location.href='{% url 'project_detail' project.id %}'" style="cursor:pointer;"><img src="{{project.image.url}}" class="card-img-top img-fluid" alt="..."/></a>
+              {% else %}
+              <img
+              src="{% static 'bilder/404.jpg' %}"
+              class="card-img-top"
+              alt="..."
+              />
+            {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{project.title}}</h5>
+            <p class="card-text">{{project.kurzbeschreibung}}</p>
+            {% for skill in project.skills_list %}
+              <button class="card-text btn btn-primary mb-3">{{ skill }}</button>
+            {% endfor %}
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='{% url 'project_detail' project.id %}'">
+                  View
+                </button>
+                <a href="{{project.github_link}}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.865-.013-1.698-2.782.603-3.37-1.338-3.37-1.338-.454-1.155-1.109-1.463-1.109-1.463-.907-.619.068-.607.068-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.53 2.34 1.088 2.909.831.091-.648.35-1.088.637-1.339-2.228-.253-4.567-1.107-4.567-4.923 0-1.086.387-1.975 1.03-2.673-.103-.253-.448-1.267.097-2.637 0 0 .837-.268 2.744 1.021a9.487 9.487 0 0 1 2.495-.337 9.488 9.488 0 0 1 2.495.337c1.907-1.289 2.743-1.021 2.743-1.021.547 1.37.202 2.384.099 2.637.642.698 1.029 1.587 1.029 2.673 0 3.828-2.342 4.667-4.577 4.914.36.308.678.916.678 1.85 0 1.335-.012 2.414-.012 2.744 0 .267.18.579.688.481C19.138 20.166 22 16.415 22 12c0-5.523-4.477-10-10-10z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

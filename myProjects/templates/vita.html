@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% load static %} 
+{% block content %}
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 g-3">
+        <div class="col">
+          <img class="profile-image img-fluid" src="{% static 'bilder/bewerbung/bewerbungsfoto_wiesemann.png' %}" alt="Jeanne's profile image">
+        </div>
+        <div class="col">
+          <p>Während meines Studiums an der Universität Potsdam habe ich ein Jahr in Frankreich und ein halbes Jahr in Rumänien studiert. Mein Studium finanzierte ich größtenteils als studentische Hilfskraft beim rbb und ZDF.
+          Ich schloss das Lehramt Französisch/Latein (B.Ed. und M.Ed.) und den Masterstudiengang Romanistische Linguistic (M.A.) erfolgreich ab. Neben einem Graecum erwarb ich um die klassische Philologie vollständig abschließen zu können das Hebraicum. Die Faszination für mein Forschungsprojekt erwarb ich bei einer mehrwöchigen Reise in die Republik Moldau.
+          Nach dem Referendariat war ich insgesamt 6 Jahre als Lehrerin in Berlin tätig. Diverse Fortbildungen (Qualifizierungsreihe für an Führung interessierte Lehrkräfte, Mentoringqualifizierung der Humboldt-Universität zu Berlin und offizielle Facultas-Erweiterung zum Sportlehrer, mehrere Fortbildungen zur Digitalisierung) konnten die Arbeitsbedingungen grundsätzlich nicht ändern, sodass ich mich entschloss weiterzugehen.
+          Mein neuer Weg begann mit dem erfolgreichen Abschluss des Bootcampes bei lewagon. Es folgte ein wunderbares Jahr der Kompetenzerweiterung anhand von eigenen Projekten und weiteren Fortbildungssteinen.</p>
+          <a href="{% static 'bilder/bewerbung/cv_wiesemann_biographie_Stand_23_07_20.pdf' %}" class="btn btn-secondary btn-lg my-2">Download CV</a>
+        </div>
+    </div>
+{% endblock content%}
+
